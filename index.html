@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minima DEX Widget</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div>
+    <h1>Minima DEX Widget</h1>
+    <p>MiniMask powered MINIMA / USDT trading portal</p>
+  </div>
+  <button id="connectBtn">Connect MiniMask</button>
+</header>
+
+<main>
+  <section class="hero card">
+    <h2>Build a DEX widget with Minima payment rails</h2>
+    <p>
+      Connect MiniMask, view wallet details, create demo orders,
+      send payments, and explore live Minima tools.
+    </p>
+    <div class="status">
+      <b>Status:</b> <span id="statusText">Checking MiniMask</span>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>Wallet</h3>
+
+      <p><b>Address:</b></p>
+      <code id="address">Not connected</code>
+
+      <p><b>Public Key:</b></p>
+      <code id="pubkey">Not loaded</code>
+
+      <button id="refreshBtn">Refresh Wallet</button>
+
+      <pre id="walletOutput">Connect MiniMask to load balances and coins</pre>
+    </div>
+
+    <div class="card swap">
+      <h3>Swap Widget</h3>
+
+      <label>You pay MINIMA</label>
+      <input id="payAmount" type="number" value="100">
+
+      <label>Price USDT</label>
+      <input id="price" type="number" value="0.0074" step="0.0001">
+
+      <label>You receive USDT</label>
+      <input id="receiveAmount" readonly>
+
+      <label>Slippage %</label>
+      <input id="slippage" type="number" value="0.5">
+
+      <button id="buyBtn" disabled>Buy MINIMA</button>
+      <button id="sellBtn" disabled>Sell MINIMA</button>
+
+      <p class="note">
+        Real execution requires live MiniMask signing and correct token IDs.
+      </p>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>Create Order</h3>
+
+      <select id="orderType">
+        <option>BUY</option>
+        <option>SELL</option>
+      </select>
+
+      <input id="orderAmount" placeholder="Amount MINIMA">
+      <input id="orderPrice" placeholder="Price USDT">
+
+      <button id="createOrderBtn" disabled>Create Order</button>
+
+      <pre id="orderOutput">Connect wallet first</pre>
+    </div>
+
+    <div class="card">
+      <h3>Send Payment</h3>
+
+      <input id="sendAddress" placeholder="Recipient address">
+      <input id="sendAmount" placeholder="Amount">
+      <input id="tokenId" value="0x00">
+
+      <button id="sendBtn" disabled>Send with MiniMask</button>
+
+      <pre id="sendOutput">Wallet must be connected</pre>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>Orderbook</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Side</th>
+            <th>Amount</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="orderbook"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Trade History</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Pair</th>
+            <th>Action</th>
+            <th>Amount</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody id="tradeHistory"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>Live Minima Tools</h3>
+
+      <button id="blockBtn">Latest Block</button>
+      <button id="randomBtn">Random</button>
+
+      <pre id="networkOutput">Output appears here</pre>
+    </div>
+
+    <div class="card">
+      <h3>TxPoW Tools</h3>
+
+      <input id="txpowId" placeholder="Enter TxPoW ID">
+
+      <button id="getTxpowBtn">Get TxPoW</button>
+      <button id="checkTxpowBtn">Check TxPoW</button>
+
+      <pre id="txpowOutput">Result appears here</pre>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>MiniMask Install Guide</h3>
+
+    <ol>
+      <li>Download MiniMask from https://minimask.org/minimask-2.5.zip</li>
+      <li>Unzip it on desktop</li>
+      <li>Open Chrome extensions page</li>
+      <li>Enable Developer Mode</li>
+      <li>Click Load Unpacked and select the MiniMask folder</li>
+      <li>Open this website and connect MiniMask</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>Security Notice</h3>
+
+    <p>
+      This site never stores private keys and never asks for seed phrases.
+      All signing happens through MiniMask.
+    </p>
+  </section>
+</main>
+
+<footer>
+  Minima DEX Widget • GitHub Pages ready
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
